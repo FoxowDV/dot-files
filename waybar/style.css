@@ -5,9 +5,9 @@
 }
 
 window#waybar {
-  background-color: rgba(17, 17, 17, 0);
+  background-color: #191724;
   border-bottom: 3px solid rgba(0, 0, 0, 0);
-  color: #ffffff;
+  color: #191724;
   transition-property: background-color;
   transition-duration: .5s;
 
@@ -44,8 +44,8 @@ button:hover {
 
 #workspaces button {
   padding: 0 5px;
-  background: rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+  background-color: #997876;
+  color: #191724;
 }
 
 #workspaces button:hover {
@@ -61,11 +61,11 @@ button:hover {
 }
 
 #workspaces button.active {
-  background-color: #3333dd;
+  background-color: #ebbcba;
 }
 
 #mode {
-  background-color: #64727D;
+  background-color: #6e6a86;
 }
 
 #clock,
@@ -84,24 +84,18 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
-#mpd {
+#mpd,
+#window,
+#workspaces
+{
   padding: 2px 10px;
-  color: #aaaaff;
-  background-color: rgba(0, 0, 0, .7);
+  color: #191724;
+  background-color: #31758f;
   border: none;
   border-radius: 10;
   margin: 4px 0px;
 }
 
-#window,
-#workspaces {
-  padding: 2px 10px;
-  color: #aaaaff;
-  background-color: rgba(0, 0, 0, .8);
-  border: none;
-  border-radius: 10;
-  margin: 4px 0px;
-}
 
 /* If workspaces is the leftmost module, omit left margin
 .modules-left>widget:first-child>#workspaces {
