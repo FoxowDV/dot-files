@@ -10,6 +10,7 @@ cp -r /home/wallace/.config/nvim/init.lua ./nvim
 cp -r /home/wallace/.config/waybar .
 cp -r /home/wallace/.config/tmux .
 cp -r /home/wallace/.config/yazi .
+cp -r /home/wallace/.config/wofi .
 
 
 
