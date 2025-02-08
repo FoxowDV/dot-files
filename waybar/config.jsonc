@@ -2,11 +2,9 @@
 {
   // "layer": "top", // Waybar at top layer
   // "position": "bottom", // Waybar position (top|bottom|left|right)
-  "height": 34, // Waybar height (to be removed for auto height)
+  "height": 36, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "spacing": 10, // Gaps between modules (4px)
-  "margin-left": 5,
-  "margin-right": 5,
   // Choose the order of the modules
   "modules-left": [
     "clock",
@@ -14,7 +12,7 @@
     "hyprland/window"
   ],
   "modules-center": [
-    "custom/media"
+    "custom/spotify"
   ],
   "modules-right": [
     // "mpd",
@@ -59,7 +57,7 @@
   },
 "custom/spotify": {
     "exec": "/usr/bin/python3 /home/wallace/.config/waybar/mediaplayer.py --player spotify",
-    "format": "{}  ",
+    "format": " {}",
     "return-type": "json",
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
@@ -118,7 +116,7 @@
     "format": "<span font='12'>{icon} </span> {capacity}%",
     "format-full": "<span font='12'>{icon} </span> {capacity}%",
     "format-charging": "<span font='12'>󰂄 </span>  {capacity}%",
-    "format-plugged": "<span font='12'>  </span>  {capacity}%",
+    "format-plugged": "<span font='12'>  </span>  100%",
     "format-warning": "<span font='12' color'yellow'>󰁼 </span>  {capacity}%",
     "format-critical": "<span font='12' color='red'>󰁼 </span>  {capacity}%",
     

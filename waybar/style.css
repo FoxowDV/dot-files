@@ -1,18 +1,17 @@
 @import "./rose-pine.css";
 
 * {
-  /* `otf-font-awesome` is required to be installed for icons */
-  color: @base;
   border: 0;
   padding: 0 0;
   font-family: "UbuntuMono";
   font-size: 13px;
   font-weight: bold;
+  margin: 0 5;
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, 0);
-  border-bottom: 3px solid rgba(0, 0, 0, 0);
+  background-color: @surface;
+  border: 2px solid rgba(0, 0, 0, .6);
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -27,28 +26,21 @@ button {
   /* Avoid rounded borders under each button name */
   border: none;
   border-radius: 5;
-  padding: 4px;
-  margin: 2px 5px;
+  color: @base;
 }
 
 button.icon {
-  color: red;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
   background: inherit;
-  padding: 5px;
 }
 
-/* you can set a style on hover for any module like this */
-/* #pulseaudio:hover {
-  background-color: #a37800;
-} */
 
 #workspaces button {
-  padding: 0 5px;
   background-color: rgba(235, 111, 146, .2);
+  margin: 4px 2px;
 }
 
 #workspaces button:hover {
@@ -64,7 +56,8 @@ button:hover {
 }
 
 #workspaces button.active {
-  background-color: @love;
+  color: @text;
+  background-color: @pine;
 }
 
 #mode {
@@ -91,31 +84,26 @@ button:hover {
 #window,
 #workspaces
 {
-  padding: 1px 12px;
-  /*background-color: rgb(15, 14, 27);*/
-  background-color: @rose;
-  border: none;
+  padding: 0px 6px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  background-color: @base;
   border-radius: 10;
-  margin: 2px 0px;
+  margin: 4px 0px;
+  color: @gold;
 }
 
 
-/* If workspaces is the leftmost module, omit left margin
+/*
 .modules-left>widget:first-child>#workspaces {
   margin-left: 0;
 }
 
 .modules-right>widget:last-child>#workspaces {
   margin-right: 0;
-}
+} 
 
 #clock {
-  background-color: #64727D;
-}
-
-#battery {
-  background-color: #ffffff;
-  color: #000000;
+ background-color: #64727D;
 }
 
 #battery.charging,
@@ -174,49 +162,58 @@ label:focus {
 #disk {
 }
 
-#backlight {
-  background-color: #90b1b1;
+
+
+#wireplumber {
+  color: @foam;
+}
+
+#wireplumber.muted {
+  color: @foam;
+}
+
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+*/
+
+#pulseaudio, #backlight{
+  color: @iris;
+}
+
+#tray {
+  color: @base;
+}
+
+#battery {
+  color: @pine;
+}
+
+
+#tray>.passive {
+  color: @base;
 }
 
 #network {
-  background-color: #2980b9;
+  color: @love;
 }
 
 #network.disconnected {
   background-color: #f53c3c;
 }
 
-#pulseaudio {
-  background-color: #f1c40f;
-  color: #000000;
-}
 
-#pulseaudio.muted {
-  background-color: #90b1b1;
-  color: #2a5c45;
-}
-
-#wireplumber {
-  background-color: #fff0f5;
-  color: #000000;
-}
-
-#wireplumber.muted {
-  background-color: #f53c3c;
-}
-
-#custom-media {
-  background-color: #66cc99;
-  color: #2a5c45;
+#custom-spotify {
+  color: @foam;
   min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-  background-color: #66cc99;
 }
 
 #custom-media.custom-vlc {
-  background-color: #ffa000;
 }
 
 #temperature {
@@ -227,18 +224,6 @@ label:focus {
   background-color: #eb4d4b;
 }
 
-#tray {
-  background-color: #2980b9;
-}
-
-#tray>.passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray>.needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
-}
 
 #idle_inhibitor {
   background-color: #2d3436;
@@ -246,12 +231,12 @@ label:focus {
 
 #idle_inhibitor.activated {
   background-color: #ecf0f1;
-  color: #2d3436;
+  -gtk-icon-effect: dim;
 }
 
 #mpd {
   background-color: #66cc99;
-  color: #2a5c45;
+  color: @foam;
 }
 
 #mpd.disconnected {
@@ -317,4 +302,4 @@ label:focus {
 
 #privacy-item.audio-out {
   background-color: #0069d4;
-} */
+} 
