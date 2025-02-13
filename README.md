@@ -1,2 +1,2 @@
-# DotfIles
+# Dotfiles
 ![Hyprland](hyprland.png)
