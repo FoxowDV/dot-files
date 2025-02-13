@@ -3,7 +3,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- Make line numbers default
 vim.opt.number = true
@@ -51,13 +51,13 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = ' ', nbsp = ' ' }
 
 vim.opt.tabstop = 8
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 8
+vim.opt.shiftwidth = 8
 vim.g.autoformat = false
 vim.opt.smartindent = false
-
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
+vim.opt.cc="80"
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
@@ -712,7 +712,7 @@ require('lazy').setup({
         enable = true,
         additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { enable = false, disable = { 'ruby' } },
+      indent = { enable = false, disable = { 'ruby', 'css' } },
     },
 
   },
@@ -745,7 +745,7 @@ require('lazy').setup({
 
   {
     "windwp/nvim-ts-autotag",
-    lazy =false,
+    lazy = false,
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
       require 'nvim-ts-autotag'.setup()
@@ -768,3 +768,6 @@ require("lspconfig").clangd.setup {
   },
 }
 
+vim.api.nvim_create_autocmd('BufWinEnter', {
+    command = 'set formatoptions-=cro',
+})
