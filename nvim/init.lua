@@ -50,14 +50,14 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = ' ', nbsp = ' ' }
 
-vim.opt.tabstop = 8
-vim.opt.softtabstop = 8
-vim.opt.shiftwidth = 8
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.g.autoformat = false
 vim.opt.smartindent = false
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
-vim.opt.cc="80"
+vim.opt.cc="180"
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
@@ -650,6 +650,7 @@ require('lazy').setup({
     init = function()
     vim.cmd.colorscheme "rose-pine"
 
+
     -- You can configure highlights by doing something like:
     vim.cmd.hi 'Comment gui=none'
     end,
@@ -752,8 +753,49 @@ require('lazy').setup({
     end,
   },
 
+-- vim.keymap.set('t', 't', ":<Cmd>execute 'y'<CR>", { desc = "Execute 'y' in terminal mode" })
+	---@type LazySpec
+	{
+	  "mikavilpas/yazi.nvim",
+	  event = "VeryLazy",
+	  keys = {
+		-- 👇 in this section, choose your own keymappings!
+		{
+		  "<leader>-",
+		  mode = { "n", "v" },
+		  "<cmd>Yazi<cr>",
+		  desc = "Open yazi at the current file",
+		},
+		{
+		  -- Open in the current working directory
+		  "t",
+		  "<cmd>Yazi cwd<cr>",
+		  desc = "Open the file manager in nvim's working directory",
+		},
+		{
+		  "<c-up>",
+		  "<cmd>Yazi toggle<cr>",
+		  desc = "Resume the last yazi session",
+		},
+	  },
+	  ---@type YaziConfig
+	  opts = {
+		-- if you want to open yazi instead of netrw, see below for more info
+		open_for_directories = false,
+		keymaps = {
+		  show_help = "<f1>",
+		},
+	  },
+	}
+
 
 })
+
+
+vim.cmd [[
+  hi Normal ctermbg=none guibg=none
+]]
+
 
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
